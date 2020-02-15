@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  mumble_server:
+    container_name: mumble_server
+    ports:
+      - '64738:64738/tcp'
+      - '64738:64738/udp'
+    volumes:
+      - '~/mumble-server/mumble/mumble-server.ini:/etc/mumble-server.ini'
+      - '~/mumble-server/mumble:/var/lib/mumble-server'
+      - '~/mumble-server/mumble/logs:/var/log/mumble-server'
+    restart: always
+    image: 'ernestgwilsonii/docker-raspberry-pi-mumble-server:1.3.0'
